@@ -1,0 +1,77 @@
+<!DOCTYPE html><html class="sl-theme-dark" lang="en"><head>
+    <!-- initialize theme vars
+    https://coolors.co/10002b-240046-3c096c-5a189a-7b2cbf-9d4edd-c77dff-e0aaff -->
+
+    <!-- initialize externals -->
+    <script src="js/jquery.min.js"></script>
+    <script src=" https://cdn.jsdelivr.net/npm/js-cookie@3.0.5/dist/js.cookie.min.js "></script>
+    
+
+
+
+
+    <!-- initialize my stuff -->
+    <script src="js/all.js"></script>
+    <script src="js/main.js"></script>
+		<script src="js/widget.js"></script>
+<script src="js/themes.js"></script>
+    <link rel="stylesheet" href="css/themes.css">
+    <link rel="stylesheet" href="css/style.css">
+
+
+
+    
+
+    <!-- seo + other things -->
+    <title>Selenite</title>
+    <link rel="icon" href="favicon.ico">
+
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <!-- toastify -->
+    <script>
+      $.getJSON("/data/games.json", (data) => {
+        for(let i = 0;i < data.length;i++) {
+          if(location.pathname.includes(data[i]["directory"])) {
+            location.href = "/semag/" + data[i]["directory"] + "/index.html"
+          }
+        }
+      })
+    </script>
+  </head>
+  <body id="noscroll"><alerts>
+
+  </alerts>
+  
+    	<header>
+			<a href="/index.html">Home</a>
+			<a href="/bookmarklets.html">Bookmarklets</a>
+			<a href="/projects.html">Games</a>
+			<a href="/apps.html">Apps</a>
+			<a href="/settings.html">Settings</a>
+			<a id="blank" href="#">Open Blank</a>
+			<div id="status">
+				<p id="time">00:00 AM</p>
+			</div>
+		</header>
+    <main id="main" class="noscroll">
+      <h1>Page not found!</h1>
+      <p>We could not find this page.</p>
+      <a href="/index.html">Go home</a>
+    </main>
+    
+    <footer class="noscroll">
+      <a href="https://codeberg.org/skysthelimitt/selenite">Source</a>
+      <a href="https://discord.gg/7jyufnwJNf">Discord</a>
+      <a href="/suggest.html">Suggestions &amp; Bugs</a>
+      <a href="/contact.html">Contact</a>
+      <a href="/support.html">Donate</a>
+      <a href="/about.html">About</a>
+    </footer>
+    
+  
+
+<script src="authCheck.js"></script>
+<script src="authCheck.js"></script>
+<script src="back.js"></script>
+</body></html>

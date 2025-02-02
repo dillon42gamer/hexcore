@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<!-- Mirrored from coolmath-8jh.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2025 03:56:49 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0, minimal-ui, shrink-to-fit=yes">
+    <title>Hexcore</title>
+    <link href="wtf.css" rel="stylesheet" type="text/css" />
+    <link href="sys/alert.html" rel="stylesheet" type="text/css" />
+    <link rel="manifest" href="manifest.html"/>
+    <link rel="icon" href="images/logo.html">
+    <script src="log.html"></script>
+    <div class="widgetbot-container">
+        <div class="widgetbot-header">🚀Created By The Hexcore Team(mostly sealiee1 and frogiee1)</div>
+    </div>
+    <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-eval' https://www.gstatic.com/ https://apis.google.com/ https://www.authpro.com https://www.googletagmanager.com https://maxcdn.bootstrapcdn.com https://cdnjs.cloudflare.com https://static.cloudflareinsights.com https://cdn.jsdelivr.net https://widgetbot.io https://docs.widgetbot.io 'unsafe-inline';">
+</head>
+<body>
+
+    <script src="sys/alert-2.html"></script>
+    <div class="message-box" id="messageBox"></div>
+    <script src='../maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css'></script>
+    <script src='jquery-1.11.1.min.html'></script>
+    
+    <div id="roddyrichhesbox">
+        <div id="main">
+            <h1>HexCore</h1>
+            <form id="uv-form">
+<input id="custom-input" type="text" placeholder="Type a URL" class="form__input"/>
+<br>
+<h3>Quick Links:</h3>
+<br>
+<a href="/embed.html#https://duckduckgo.com">DuckDuckGo(google doesnt support proxies)</a><br>
+<a href="/embed.html#https://youtube.com">YouTube</a><br>
+<a href="/embed.html#https://nowgg.lol/hub">The Hub</a>
+
+<script>
+  document.getElementById('custom-input').addEventListener('keydown', function(event) {
+    // Check if the Enter key was pressed
+    if (event.key === "Enter") {
+      event.preventDefault(); // Prevent form submission if inside a form
+      const inputValue = this.value.trim();
+      
+      // If the input is empty, do nothing
+      if (!inputValue) return;
+      
+      let finalURL;
+      
+      // Determine if the input is a search query or a URL:
+      // Here, if the input contains spaces, treat it as a search query.
+      if (inputValue.indexOf(" ") !== -1) {
+        // Replace spaces with plus signs for DuckDuckGo search
+        inputValue = inputValue.replace(/ /g, '+');
+        // Build the DuckDuckGo search URL
+        finalURL = "https://duckduckgo.com/?q=" + encodeURIComponent(inputValue);
+      } else {
+        // Assume it's a URL; check if it starts with "http://" or "https://"
+        if (!inputValue.startsWith("http://") && !inputValue.startsWith("https://")) {
+          finalURL = "https://" + inputValue;
+        } else {
+          finalURL = inputValue;
+        }
+      }
+      
+      // Redirect the user.
+      // The hash always appears, and we include the final URL after it.
+      window.location.href = "/embed.html#" + finalURL;
+    }
+  });
+</script>
+
+            </form>
+            <br>
+            <button id="cloaker" onclick="window.location.href='projects.html'">Games</button>
+            <script>
+                function openGame(){
+                    var urlObj = new window.URL(window.location.html);
+                    var url = window.location;
+
+                    if (url) {
+                        var win;
+
+                        document.querySelector('#cloaker').onclick = function() {
+                            if (win) {
+                                win.focus();
+                            } else {
+                                win = window.open();
+                                win.document.body.style.margin = '0';
+                                win.document.body.style.height = '100vh';
+                                var iframe = win.document.createElement('iframe');
+                                iframe.style.border = 'none';
+                                iframe.style.width = '100%';
+                                iframe.style.height = '100%';
+                                iframe.style.margin = '0';
+                                iframe.src = url;
+                                win.document.body.appendChild(iframe);
+                                window.location.replace("https://google.com/");
+
+                                var interval = setInterval(function() {
+                                    if (win.closed) {
+                                        clearInterval(interval);
+                                        win = undefined;
+                                    }
+                                }, 500);
+                            }
+                        };
+                    }
+                }
+            </script>
+        </div>
+    </div>
+    <div style="position: absolute; top: 20px; right: 20px;">
+
+    <div id="background"></div>
+    <div id="particles-js"></div>
+    <script src="particles.js"></script>
+    <script src="app.js"></script>
+    <script src="settings.js"></script>
+    <script src="panic.html"></script>
+    <script src="static/uv/uv.bundle.js" defer></script>
+    <script src="static/uv/uv.config.js" defer></script>
+    <script src="static/register-sw.js" defer></script>
+    <script src="static/search.js" defer></script>
+    <script src="static/index.js" defer></script>
+    
+    <script>
+        const acceptButton = document.getElementById('acceptCookies');
+        const declineButton = document.getElementById('declineCookies');
+        const cookieConsentPopup = document.getElementById('cookieConsentPopup');
+
+        acceptButton.addEventListener('click', () => {
+            cookieConsentPopup.style.display = 'none';
+            // Logic to set a cookie or local storage for consent
+        });
+
+        declineButton.addEventListener('click', () => {
+            cookieConsentPopup.style.display = 'none';
+            // Logic to handle declined consent
+        });
+    </script>
+</body>
+
+<!-- Mirrored from coolmath-8jh.pages.dev/ by HTTrack Website Copier/3.x [XR&CO'2014], Sun, 02 Feb 2025 03:56:53 GMT -->
+</html>

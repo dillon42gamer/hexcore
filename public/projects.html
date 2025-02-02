@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en-US">
+<head>
+    <title>Games | Pixel Pulse</title>
+    <meta name="keywords" content="front-end web developer, unblocked, games, google sites, unblocked games mom, unblocked, code, coding, programmer, development, javascript, jquery, bootstrap, sass, less, git" />
+    <meta property="og:title" content="Welcome to Pixel Pulse, a lightweight, fast, and clean game site." />
+    <meta property="og:site_name" content="pixelpulse.github.io" />
+    <meta property="og:description" content="Welcome to Pixel Pulse, a lightweight, fast, and clean game site." />
+    <meta name="description" content="Welcome to Pixel Pulse, a lightweight, fast, and clean game site." />
+    <meta name="author" content="Pixel Pulse" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStR3gp3oUAFMLiVjj7EnxHK5JBLgOjZqbJrw&s" />
+    <link rel="shortcut-icon" href="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcStR3gp3oUAFMLiVjj7EnxHK5JBLgOjZqbJrw&s" />
+    <style>
+        /* Base Reset */
+* /* Reset and Base Styling */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 16px;
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Roboto', sans-serif;
+    background: linear-gradient(145deg, #1a1a2e, #16213e);
+    color: #eaeaea;
+    line-height: 1.5;
+    margin: 0;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Header Styling */
+header {
+    background: linear-gradient(to right, #0f3460, #1a1a2e);
+    color: #eaeaea;
+    padding: 20px 15px;
+    width: 100%;
+    text-align: center;
+    font-size: 2.2rem;
+    font-weight: bold;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+header:hover {
+    background: linear-gradient(to right, #16213e, #0f3460);
+    transition: background 0.3s ease;
+}
+
+/* Search Bar Styling */
+#search {
+    margin: 20px auto;
+    padding: 12px 15px;
+    width: 90%;
+    max-width: 700px;
+    border: 1px solid #0f3460;
+    border-radius: 30px;
+    font-size: 1rem;
+    background-color: #16213e;
+    color: #eaeaea;
+    transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+#search:focus {
+    outline: none;
+    border-color: #00a8cc;
+    box-shadow: 0px 4px 10px rgba(0, 168, 204, 0.5);
+}
+
+/* App Tiles Grid */
+.flex-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+    width: 95%;
+    max-width: 1200px;
+    padding: 20px;
+}
+
+/* App Tile Styling */
+.game-link {
+    text-decoration: none;
+    color: inherit;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    padding: 15px;
+    background: linear-gradient(to top, #222831, #393e46);
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.game-link:hover {
+    transform: translateY(-5px);
+    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(to top, #393e46, #00a8cc);
+}
+
+/* App Icon Styling */
+.game-icon {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.game-link:hover .game-icon {
+    transform: scale(1.1);
+}
+
+/* App Title Styling */
+.game-title {
+    margin-top: 10px;
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: #00a8cc;
+    text-align: center;
+    text-shadow: 0px 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Back-to-Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background: #00a8cc;
+    color: #eaeaea;
+    font-size: 1.5rem;
+    border: none;
+    padding: 15px;
+    border-radius: 50%;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.3s ease;
+    display: none;
+    z-index: 100;
+}
+
+.back-to-top:hover {
+    background: #00a8cc;
+    transform: scale(1.1);
+}
+
+/* Loader Styling */
+.loader {
+    margin: 50px auto;
+    width: 80px;
+    height: 80px;
+    border: 8px solid #393e46;
+    border-top: 8px solid #00a8cc;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    to {
+        transform: rotate(360deg);
+    }
+}
+
+/* App Tile Hover Animation */
+@keyframes hover-glow {
+    0% {
+        box-shadow: 0 0 8px rgba(0, 168, 204, 0.3);
+    }
+    50% {
+        box-shadow: 0 0 15px rgba(0, 168, 204, 0.5);
+    }
+    100% {
+        box-shadow: 0 0 8px rgba(0, 168, 204, 0.3);
+    }
+}
+
+.game-link:hover {
+    animation: hover-glow 0.8s infinite;
+}
+
+/* Responsiveness */
+@media (max-width: 768px) {
+    header {
+        font-size: 1.8rem;
+        padding: 15px;
+    }
+
+    .game-title {
+        font-size: 1rem;
+    }
+
+    #search {
+        padding: 10px;
+        font-size: 0.9rem;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        font-size: 1.5rem;
+    }
+
+    .game-title {
+        font-size: 0.9rem;
+    }
+
+    .game-link {
+        padding: 10px;
+    }
+
+    #search {
+        width: 95%;
+    }
+}
+
+    </style>
+</head>
+<body>
+    <header>
+        Pixel Pulse Games
+        <button class="header-button" id="toggleApps">Apps</button>
+    </header>
+    <input type="text" id="search" onkeyup="searchGames()" placeholder="Search for games..." />
+    <div id="loader" class="loader"></div>
+    <div id="game-container" class="flex-container"></div>
+
+
+    </div>
+
+    <script>
+        const games = [];
+
+        // Fetching Games and Apps
+        fetch("config/games.json")
+            .then(response => response.json())
+            .then(data => {
+                data.forEach(project => {
+                    if (project.type === "game") {
+                        games.push(project);
+                    }
+                });
+
+                renderContainer("game-container", games);
+
+                document.getElementById("loader").style.display = "none";
+            })
+            .catch(error => console.error("Error:", error));
+
+        function renderContainer(containerId, items) {
+            const container = document.getElementById(containerId);
+            container.innerHTML = ""; // Clear container
+            items.forEach(project => {
+                const game = document.createElement("a");
+                game.href = project.link;
+                game.className = "game-link";
+                game.innerHTML = `
+                    <div class="game-tile">
+                        <img class="game-icon" src="${project.imgSrc}" alt="icon" />
+                        <div class="game-title">${project.title}</div>
+                    </div>`;
+                container.appendChild(game);
+            });
+        }
+
+        function searchGames() {
+            const query = document.getElementById("search").value.toLowerCase();
+            const filteredGames = games.filter(game => game.title.toLowerCase().includes(query));
+            const container = document.getElementById("game-container");
+            container.innerHTML = ""; // Clear current display
+            filteredGames.forEach(project => {
+                const game = document.createElement("a");
+                game.href = project.link;
+                game.className = "game-link";
+                game.innerHTML = `
+                    <div class="game-tile">
+                        <img class="game-icon" src="${project.imgSrc}" alt="icon" />
+                        <div class="game-title">${project.title}</div>
+                    </div>`;
+                container.appendChild(game);
+            });
+        }
+
+        // Toggle Apps Section
+        toggleAppsBtn.addEventListener("click", () => {
+            appsSection.classList.toggle("show");
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>go to a different page, see what happens...</title>
+    <style>
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: black;
+            overflow: hidden;
+            margin: 0;
+        }
+
+        .glitchy-text {
+            position: relative;
+            font-size: 3em;
+            color: red;
+            font-family: 'Courier New', Courier, monospace;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            animation: flicker 2s infinite alternate ease-in-out;
+        }
+
+        /* Create a red shadow that flickers for the glitch effect */
+        .glitchy-text::before, 
+        .glitchy-text::after {
+            content: attr(data-text);
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            color: #ff3333;
+            overflow: hidden;
+            clip-path: inset(0 0 50% 0); /* Clip the top/bottom for effect */
+        }
+
+        /* Flickering animation for glitch layers */
+        .glitchy-text::before {
+            left: 2px;
+            text-shadow: -2px 0 red;
+            animation: glitch-skew 2s infinite linear alternate-reverse;
+        }
+
+        .glitchy-text::after {
+            left: -2px;
+            text-shadow: 2px 0 blue;
+            animation: glitch-skew 1.5s infinite linear alternate;
+        }
+
+        /* Keyframes for slight flicker */
+        @keyframes flicker {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.8; }
+        }
+
+        /* Glitch shift animation */
+        @keyframes glitch-skew {
+            0% { clip-path: inset(0 0 20% 0); transform: skew(0.5deg); }
+            10% { clip-path: inset(20% 0 30% 0); transform: skew(1deg); }
+            20% { clip-path: inset(20% 0 20% 0); transform: skew(-0.5deg); }
+            30% { clip-path: inset(40% 0 10% 0); transform: skew(1deg); }
+            40% { clip-path: inset(10% 0 40% 0); transform: skew(-0.5deg); }
+            50% { clip-path: inset(30% 0 20% 0); transform: skew(0.5deg); }
+            60% { clip-path: inset(40% 0 30% 0); transform: skew(-1deg); }
+            70% { clip-path: inset(30% 0 10% 0); transform: skew(1deg); }
+            80% { clip-path: inset(10% 0 30% 0); transform: skew(-0.5deg); }
+            90% { clip-path: inset(20% 0 40% 0); transform: skew(0.5deg); }
+            100% { clip-path: inset(0 0 20% 0); transform: skew(-1deg); }
+        }
+    </style>
+</head>
+<body>
+    <div class="glitchy-text" data-text="YOU REALLY THOUGHT YOU COULD STEAL MY WEBSITE BY GOING TO PROJECTS..">YOU REALLY THOUGHT YOU COULD STEAL MY WEBSITE BY GOING TO PROJECTS..</div>
+</body>
+</html>
